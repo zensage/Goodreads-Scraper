@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Goodreads Search</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body>
+    <div class="app-layout">
+      <header class="search-region">
+        <h1>Scraper</h1>
+        <form id="search-form">
+          <input id="query" type="text" placeholder="Search book or author..." aria-label="Search" required autofocus />
+          <button type="submit">Search</button>
+        </form>
+        <div id="status" class="status-indicator"></div>
+      </header>
+
+      <main class="content-region">
+        <section id="results" class="results-layout" aria-live="polite"></section>
+      </main>
+    </div>
+
+    <template id="book-card-template">
+      <article class="entry">
+        <a class="cover-link" target="_blank" rel="noopener noreferrer">
+          <div class="cover"></div>
+        </a>
+        <div class="entry-details">
+          <h3 class="title"></h3>
+          <p class="author"></p>
+          <div class="meta">
+            <span class="rating"></span>
+            <a class="cta" target="_blank" rel="noopener noreferrer">View</a>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+  </body>
+</html>
+
